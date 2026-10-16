@@ -1,13 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>m2f1web</title>
+    <title>F1 Drivers</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <h1>Pilotos de Fórmula 1</h1>
+      <p>Explorador interactivo de pilotos de F1</p>
+    </header>
+
+    <main>
+      <section class="controls">
+        <label for="search">Filtrar por nombre:</label>
+        <input
+          id="search"
+          type="text"
+          placeholder="Escribe para buscar..."
+          autocomplete="off"
+        />
+        <button id="reload-btn" type="button">Recargar datos</button>
+      </section>
+
+      <div id="app" class="content-area"></div>
+    </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
