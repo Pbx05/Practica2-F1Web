@@ -1,32 +1,72 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>F1 Drivers</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Pilotos de Fórmula 1</h1>
-      <p>Explorador interactivo de pilotos de F1</p>
-    </header>
 
-    <main>
-      <section class="controls">
-        <label for="search">Filtrar por nombre:</label>
-        <input
-          id="search"
-          type="text"
-          placeholder="Escribe para buscar..."
-          autocomplete="off"
-        />
-        <button id="reload-btn" type="button">Recargar datos</button>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fórmula 1 · Clasificación Oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
 
-      <div id="app" class="content-area"></div>
-    </main>
+<body>
+  <header class="f1-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="f1-logo">F1</span>
+        <div class="brand-text">
+          <h1>Campeonato Mundial de Fórmula 1</h1>
+          <p>Clasificación y telemetría de la temporada</p>
+        </div>
+      </div>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+      <div class="season-control">
+        <label for="season-select">Temporada</label>
+        <div class="select-wrapper">
+          <select id="season-select" aria-label="Seleccionar temporada de Fórmula 1"></select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <nav class="action-bar" aria-label="Controles de clasificación">
+      <div class="view-tabs" id="tabs-nav">
+        <button type="button" class="tab-button active" data-tab="pilotos">
+          Clasificación de pilotos
+        </button>
+        <button type="button" class="tab-button" data-tab="constructores">
+          Clasificación de constructores
+        </button>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="winners-btn" class="action-button">
+          Solo ganadores de GP
+        </button>
+        <button type="button" id="reload-btn" class="action-button secondary">
+          Actualizar datos
+        </button>
+      </div>
+    </nav>
+
+    <section id="summary-bar" class="summary-ribbon" aria-live="polite"></section>
+
+    <section id="app" class="standings-display" aria-live="polite"></section>
+  </main>
+
+  <footer class="f1-footer">
+    <div class="footer-inner">
+      <p>Datos en tiempo real servidos a través de la API oficial Jolpi Ergast F1.</p>
+      <p>Programación Web I · Cliente · JavaScript ES2024 / ES2025</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
